@@ -18,15 +18,23 @@
 <body>
     {{-- Header --}}
     @include('common.header', [
-        'logo' => 'ShadePro',
-        'navigation' => [
-            ['text' => 'Demos', 'url' => '/demos', 'active' => true],
-            ['text' => 'Pages', 'url' => '/pages', 'active' => false],
-            ['text' => 'Support', 'url' => '/support', 'active' => false]
+        'logo' => 'shadepro',
+        'menu' => [
+            [
+                'text' => 'Collect',
+                'url' => '/collect',
+                'icon' => 'arrow-right'
+            ],
+            [
+                'text' => 'Collect',
+                'url' => '/collect',
+                'icon' => 'arrow-right'
+            ]
         ],
-        'button' => [
-            'text' => 'Get Started',
-            'url' => '/get-started'
+        'language' => [
+            'flag' => 'vn',
+            'text' => 'Tiếng Việt',
+            'url' => '/language'
         ],
         'sticky' => true,
         'variant' => 'transparent'

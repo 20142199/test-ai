@@ -1,0 +1,129 @@
+/* Logo Component Styles */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo__icon {
+    width: 182px;
+    height: 50px;
+    display: block;
+    flex-shrink: 0;
+}
+
+.logo__text-fallback {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #212B63;
+    display: none; /* Hidden by default, shown when SVG fails */
+}
+
+/* Logo Sizes */
+.logo--small .logo__icon {
+    width: 120px;
+    height: 33px;
+}
+
+.logo--large .logo__icon {
+    width: 240px;
+    height: 66px;
+}
+
+.logo--default .logo__icon {
+    width: 182px;
+    height: 50px;
+}
+
+/* Logo Variants */
+.logo--white .logo__text-fallback {
+    color: white;
+}
+
+.logo--dark .logo__text-fallback {
+    color: #212B63;
+}
+
+/* Hover Effects */
+.logo:hover {
+    transform: scale(1.02);
+}
+
+.logo:hover .logo__icon {
+    filter: brightness(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo__icon {
+        width: 140px;
+        height: 38px;
+    }
+    
+    .logo--small .logo__icon {
+        width: 100px;
+        height: 27px;
+    }
+    
+    .logo--large .logo__icon {
+        width: 180px;
+        height: 49px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo__icon {
+        width: 120px;
+        height: 33px;
+    }
+    
+    .logo--small .logo__icon {
+        width: 80px;
+        height: 22px;
+    }
+    
+    .logo--large .logo__icon {
+        width: 140px;
+        height: 38px;
+    }
+}
+
+/* Fallback for when SVG doesn't load */
+.logo__icon:not([src]) + .logo__text-fallback,
+.logo__icon[src=""] + .logo__text-fallback {
+    display: block;
+}
+
+.logo__icon:not([src]) + .logo__text-fallback ~ .logo__icon,
+.logo__icon[src=""] + .logo__text-fallback ~ .logo__icon {
+    display: none;
+}
+
+/* Animation */
+@keyframes logoGlow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.1) drop-shadow(0 0 8px rgba(251, 174, 29, 0.3));
+    }
+}
+
+.logo--animated:hover .logo__icon {
+    animation: logoGlow 2s ease-in-out infinite;
+}
+
+/* Print Styles */
+@media print {
+    .logo__icon {
+        filter: grayscale(100%);
+    }
+    
+    .logo__text-fallback {
+        color: black !important;
+    }
+}
