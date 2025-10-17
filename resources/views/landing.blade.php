@@ -7,7 +7,7 @@
     <title>ShadePro - Professional Design & Development</title>
     
     {{-- Include main CSS --}}
-    <link rel="stylesheet" href="{{ asset('css/common/main.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     
     {{-- Meta tags for SEO --}}
     <meta property="og:title" content="ShadePro - Professional Design & Development">
@@ -67,12 +67,8 @@
         'author' => [
             'name' => 'John Doe',
             'title' => 'Graphic Designer',
-            'image' => [
-                'src' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
-                'alt' => 'John Doe'
-            ]
-        ],
-        'showBorder' => true
+            'image' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face'
+        ]
     ])
 
     {{-- About Section with Images (Block 4) --}}
@@ -124,22 +120,22 @@
         'heading' => 'Everything you need to build amazing websites',
         'features' => [
             [
-                'icon' => 'design',
+                'icon' => 'layers',
                 'title' => 'Professional Design',
                 'description' => 'Beautiful, modern designs that convert visitors into customers'
             ],
             [
-                'icon' => 'development',
+                'icon' => 'contact',
                 'title' => 'Fast Development',
                 'description' => 'Lightning-fast websites built with the latest technologies'
             ],
             [
-                'icon' => 'support',
+                'icon' => 'chat',
                 'title' => '24/7 Support',
                 'description' => 'Round-the-clock support to help you succeed'
             ],
             [
-                'icon' => 'analytics',
+                'icon' => 'clock',
                 'title' => 'Advanced Analytics',
                 'description' => 'Comprehensive insights to optimize your performance'
             ]
@@ -151,8 +147,7 @@
                 'text' => 'Start Free Trial',
                 'url' => '/trial'
             ]
-        ],
-        'decorations' => true
+        ]
     ])
 
     {{-- Portfolio Section (Block 7) --}}

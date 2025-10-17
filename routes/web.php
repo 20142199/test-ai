@@ -13,4 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/', function () {
+    return view('landing');
+})->name('home.index');
+
+Route::get('/test', function () {
+    return view('landing-simple');
+})->name('test');
