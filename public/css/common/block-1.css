@@ -1,5 +1,6 @@
 /* Block-1 Component - Section 1 Based on Figma Design */
 /* Dimensions: 1440px width, 1284px height */
+/* Fixed layout to work with header */
 
 /* Block-1 Variables */
 :root {
@@ -29,9 +30,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 0;
     box-sizing: border-box;
+    /* Add top margin to account for header */
+    margin-top: 116px; /* Header height */
+    z-index: 1;
 }
 
 /* Section Text */
@@ -46,6 +49,11 @@
     align-items: center;
     gap: 24px;
     z-index: 2;
+}
+
+/* Adjust positioning for sticky header */
+.header--sticky + .block-1 .block-1__section-text {
+    top: 100px; /* Keep original position */
 }
 
 .block-1__top {
@@ -152,6 +160,11 @@
     z-index: 1;
 }
 
+/* Adjust positioning for sticky header */
+.header--sticky + .block-1 .block-1__mockup-section {
+    top: 314px; /* Keep original position */
+}
+
 /* Desktop Mockup */
 .block-1__desktop {
     position: relative;
@@ -241,34 +254,6 @@
     opacity: 0.8;
 }
 
-/* Mobile Mockup */
-.block-1__mobile {
-    position: absolute;
-    right: 0;
-    top: 80px;
-    width: 350px;
-    height: 750px;
-    background: var(--block1-desktop-bg);
-    border: 2px solid var(--block1-desktop-border);
-    border-radius: 20px;
-    box-shadow: 12px 12px 0px var(--block1-desktop-border);
-    overflow: hidden;
-}
-
-.block-1__mobile-content {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, RGB(34, 197, 94) 0%, RGB(16, 185, 129) 100%);
-    position: relative;
-}
-
-.block-1__mobile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-}
-
 /* Content Boxes */
 .block-1__content-boxes {
     position: absolute;
@@ -279,6 +264,11 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+/* Adjust positioning for sticky header */
+.header--sticky + .block-1 .block-1__content-boxes {
+    top: 336px; /* Keep original position */
 }
 
 .block-1__content-box {
@@ -318,6 +308,39 @@
     margin: 0;
 }
 
+/* Mobile Mockup */
+.block-1__mobile {
+    position: absolute;
+    right: 0;
+    top: 80px;
+    width: 350px;
+    height: 750px;
+    background: var(--block1-desktop-bg);
+    border: 2px solid var(--block1-desktop-border);
+    border-radius: 20px;
+    box-shadow: 12px 12px 0px var(--block1-desktop-border);
+    overflow: hidden;
+}
+
+/* Adjust positioning for sticky header */
+.header--sticky + .block-1 .block-1__mobile {
+    top: 80px; /* Keep original position */
+}
+
+.block-1__mobile-content {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, RGB(34, 197, 94) 0%, RGB(16, 185, 129) 100%);
+    position: relative;
+}
+
+.block-1__mobile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
 /* Responsive Design */
 @media (max-width: 1440px) {
     .block-1 {
@@ -331,7 +354,7 @@
         top: auto;
         width: 100%;
         max-width: 959px;
-        margin: 100px 0 0 0;
+        margin: 100px auto 0 auto;
     }
     
     .block-1__mockup-section {
@@ -340,7 +363,7 @@
         top: auto;
         width: 100%;
         max-width: 1280px;
-        margin: 80px 0 0 0;
+        margin: 80px auto 0 auto;
         flex-direction: column;
         align-items: center;
         gap: 40px;
@@ -368,7 +391,7 @@
         top: auto;
         width: 100%;
         max-width: 345.99px;
-        margin: 40px 0 0 0;
+        margin: 40px auto 0 auto;
     }
 }
 
@@ -376,10 +399,11 @@
     .block-1 {
         height: auto;
         padding: 50px 1.5rem;
+        margin-top: 80px; /* Adjust for smaller header */
     }
     
     .block-1__section-text {
-        margin: 50px 0 0 0;
+        margin: 50px auto 0 auto;
     }
     
     .block-1__main-headline {
@@ -401,17 +425,18 @@
     }
     
     .block-1__mockup-section {
-        margin: 50px 0 0 0;
+        margin: 50px auto 0 auto;
     }
 }
 
 @media (max-width: 768px) {
     .block-1 {
         padding: 30px 1rem;
+        margin-top: 70px; /* Adjust for mobile header */
     }
     
     .block-1__section-text {
-        margin: 30px 0 0 0;
+        margin: 30px auto 0 auto;
         gap: 16px;
     }
     
@@ -460,6 +485,7 @@
 @media (max-width: 480px) {
     .block-1 {
         padding: 20px 0.5rem;
+        margin-top: 60px; /* Adjust for smallest header */
     }
     
     .block-1__main-headline {
@@ -509,6 +535,10 @@
 
 /* Print Styles */
 @media print {
+    .block-1 {
+        margin-top: 0;
+    }
+    
     .block-1__button {
         background: black !important;
         color: white !important;

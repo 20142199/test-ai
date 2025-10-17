@@ -42,9 +42,9 @@
 
     {{-- Hero Section (Block 1) --}}
     @include('common.block-1', [
-        'caption' => 'Caption text here',
-        'mainHeadline' => 'Main Headline',
-        'secondaryHeadline' => 'Secondary Headline',
+        'caption' => 'Let\'s shift your bus',
+        'mainHeadline' => 'Shift your business',
+        'secondaryHeadline' => 'With lots of unique blocks, you can easily build a page without coding.',
         'buttonText' => 'Collect',
         'buttonUrl' => '/collect',
         'desktopImage' => 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=977&h=667&fit=crop',
@@ -52,8 +52,13 @@
         'contentBoxes' => [
             [
                 'icon' => 'three-stars',
-                'title' => 'Content Title',
-                'category' => 'Category'
+                'title' => 'Professional Design',
+                'category' => 'UI/UX Design'
+            ],
+            [
+                'icon' => 'three-stars',
+                'title' => 'Fast Development',
+                'category' => 'Web Development'
             ]
         ]
     ])
