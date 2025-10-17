@@ -1,0 +1,517 @@
+/* Header Component - Based on Figma Design */
+
+/* Header Variables */
+:root {
+    /* Header Colors from Figma */
+    --header-bg: transparent;
+    --header-text-primary: rgb(22, 28, 45);     /* Dark blue text from Figma */
+    --header-text-secondary: rgb(22, 28, 45);   /* Same dark blue for navigation */
+    --header-brand-color: rgb(22, 28, 45);      /* Logo color */
+    
+    /* Button Colors from Figma */
+    --header-btn-bg: rgb(71, 59, 240);          /* Purple button background */
+    --header-btn-text: rgb(255, 255, 255);      /* White button text */
+    --header-btn-border: none;
+    --header-btn-radius: 8px;                   /* Button border radius from Figma */
+    
+    /* Header Dimensions */
+    --header-height: 50px;                      /* Height from Figma */
+    --header-padding-x: 30px;                   /* Horizontal padding */
+    --header-padding-y: 0px;                    /* Vertical padding */
+    
+    /* Logo and Navigation */
+    --logo-font-size: 1.75rem;                  /* 28px height from Figma */
+    --logo-font-weight: 600;
+    --nav-font-size: 1rem;                      /* 16px for navigation */
+    --nav-font-weight: 400;
+    
+    /* Button */
+    --btn-width: 209px;                         /* Button width from Figma */
+    --btn-height: 50px;                         /* Button height from Figma */
+    --btn-font-size: 0.875rem;                  /* 14px for button text */
+    --btn-font-weight: 500;
+    
+    /* Spacing */
+    --header-gap: 2rem;                         /* Gap between elements */
+    --nav-gap: 2rem;                           /* Gap between nav items */
+}
+
+/* Header Container */
+.header {
+    position: relative;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--header-bg);
+    padding: var(--header-padding-y) var(--header-padding-x);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: var(--z-sticky);
+    transition: all 0.3s ease;
+}
+
+/* Header when scrolled */
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Logo Section */
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--header-brand-color);
+    font-family: var(--font-primary);
+    font-size: var(--logo-font-size);
+    font-weight: var(--logo-font-weight);
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.header__logo:hover {
+    color: var(--header-brand-color);
+    text-decoration: none;
+}
+
+.header__logo-icon {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+.header__logo-text {
+    font-size: var(--logo-font-size);
+    font-weight: var(--logo-font-weight);
+    color: var(--header-brand-color);
+    letter-spacing: -0.025em;
+}
+
+/* Navigation Section */
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+    flex: 1;
+    justify-content: center;
+}
+
+.header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__nav-item {
+    position: relative;
+}
+
+.header__nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-3);
+    color: var(--header-text-secondary);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-size: var(--nav-font-size);
+    font-weight: var(--nav-font-weight);
+    line-height: 1.5;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.header__nav-link:hover {
+    color: var(--header-text-primary);
+    background-color: var(--bg-secondary);
+    text-decoration: none;
+}
+
+.header__nav-link.active {
+    color: var(--header-text-primary);
+    background-color: var(--bg-tertiary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Dropdown Navigation */
+.header__nav-dropdown {
+    position: relative;
+}
+
+.header__nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    cursor: pointer;
+}
+
+.header__nav-dropdown-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+}
+
+.header__nav-dropdown.open .header__nav-dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.header__nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: var(--z-dropdown);
+}
+
+.header__nav-dropdown.open .header__nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header__nav-dropdown-item {
+    margin: 0;
+}
+
+.header__nav-dropdown-link {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+}
+
+.header__nav-dropdown-link:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+/* Action Section */
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* Header Button - Based on Figma Design */
+.header__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: var(--btn-width);
+    height: var(--btn-height);
+    background-color: var(--header-btn-bg);
+    color: var(--header-btn-text);
+    border: var(--header-btn-border);
+    border-radius: var(--header-btn-radius);
+    font-family: var(--font-primary);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.header__btn:hover {
+    background-color: rgb(59, 48, 204); /* Darker purple on hover */
+    color: var(--header-btn-text);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.header__btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.header__btn:focus {
+    outline: 2px solid rgba(71, 59, 240, 0.3);
+    outline-offset: 2px;
+}
+
+.header__btn-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.header__btn-text {
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    line-height: 1;
+}
+
+/* Mobile Menu Toggle */
+.header__mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s ease;
+}
+
+.header__mobile-toggle:hover {
+    background-color: var(--bg-secondary);
+}
+
+.header__mobile-toggle-line {
+    width: 20px;
+    height: 2px;
+    background-color: var(--header-text-primary);
+    border-radius: 1px;
+    transition: all 0.2s ease;
+}
+
+.header__mobile-toggle.open .header__mobile-toggle-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.header__mobile-toggle.open .header__mobile-toggle-line:nth-child(2) {
+    opacity: 0;
+}
+
+.header__mobile-toggle.open .header__mobile-toggle-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Navigation */
+.header__mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-4);
+    z-index: var(--z-dropdown);
+}
+
+.header__mobile-nav.open {
+    display: block;
+}
+
+.header__mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__mobile-nav-item {
+    margin: 0;
+}
+
+.header__mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+}
+
+.header__mobile-nav-link:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.header__mobile-nav-link.active {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    :root {
+        --header-gap: 1.5rem;
+        --nav-gap: 1.5rem;
+    }
+    
+    .header__nav {
+        gap: var(--space-4);
+    }
+    
+    .header__nav-list {
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-padding-x: 1rem;
+        --header-gap: 1rem;
+        --btn-width: auto;
+        --btn-padding-x: 1.5rem;
+    }
+    
+    .header {
+        padding: 0 var(--space-4);
+    }
+    
+    .header__logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .header__nav {
+        display: none;
+    }
+    
+    .header__mobile-toggle {
+        display: flex;
+    }
+    
+    .header__mobile-nav {
+        display: none;
+    }
+    
+    .header__btn {
+        width: auto;
+        padding: 0 var(--space-4);
+        min-width: 120px;
+    }
+    
+    .header__btn-text {
+        display: none;
+    }
+    
+    .header__btn-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0 var(--space-3);
+    }
+    
+    .header__logo-text {
+        font-size: 1.25rem;
+    }
+    
+    .header__btn {
+        min-width: 100px;
+        padding: 0 var(--space-3);
+    }
+}
+
+/* Sticky Header */
+.header--sticky {
+    position: sticky;
+    top: 0;
+}
+
+.header--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Header Variants */
+.header--transparent {
+    background-color: transparent;
+}
+
+.header--solid {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.header--glass {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+    .header {
+        --header-bg: rgba(18, 18, 20, 0.95);
+        --header-text-primary: rgb(255, 255, 255);
+        --header-text-secondary: rgb(180, 180, 180);
+        --header-brand-color: rgb(255, 255, 255);
+    }
+    
+    .header.scrolled {
+        background-color: rgba(18, 18, 20, 0.95);
+        border-bottom-color: var(--border-primary);
+    }
+    
+    .header--glass {
+        background-color: rgba(18, 18, 20, 0.8);
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Animation for header show/hide on scroll */
+.header--hide {
+    transform: translateY(-100%);
+}
+
+.header--show {
+    transform: translateY(0);
+}
+
+/* Focus management for accessibility */
+.header__nav-link:focus-visible,
+.header__btn:focus-visible,
+.header__mobile-toggle:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-md);
+}
+
+/* Skip to content link */
+.header__skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--header-btn-bg);
+    color: var(--header-btn-text);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: var(--z-tooltip);
+}
+
+.header__skip-link:focus {
+    top: 6px;
+}

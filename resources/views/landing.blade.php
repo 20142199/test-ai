@@ -7,7 +7,7 @@
     <title>ShadePro - Professional Design & Development</title>
     
     {{-- Include main CSS --}}
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     
     {{-- Meta tags for SEO --}}
     <meta property="og:title" content="ShadePro - Professional Design & Development">

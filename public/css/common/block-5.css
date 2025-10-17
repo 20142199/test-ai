@@ -1,0 +1,305 @@
+/* Block 5 Component - Facts/Stats Section */
+/* Based on Figma design with three columns of statistics */
+
+.block-5 {
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.block-5__container {
+    max-width: 1074px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.block-5__facts {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+}
+
+/* Individual Stat Card */
+.block-5__stat {
+    width: 314px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background: transparent;
+}
+
+/* Stat Number */
+.block-5__number {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3.625rem; /* 58px */
+    font-weight: 700;
+    color: RGB(22, 28, 45); /* RGB(0.086, 0.110, 0.176) */
+    margin: 0;
+    line-height: 1;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stat Description */
+.block-5__description {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: RGB(22, 28, 45); /* RGB(0.086, 0.110, 0.176) */
+    margin: 18px 0 0 0;
+    line-height: 1.6;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 314px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .block-5__container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .block-5__facts {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+    
+    .block-5__stat {
+        width: 280px;
+        height: auto;
+        min-height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .block-5__container {
+        padding: 0 1rem;
+    }
+    
+    .block-5__facts {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        height: auto;
+        padding: 2rem 0;
+    }
+    
+    .block-5__stat {
+        width: 100%;
+        max-width: 314px;
+        height: auto;
+        min-height: 120px;
+    }
+    
+    .block-5__number {
+        font-size: 3rem;
+        height: auto;
+        margin-bottom: 0.5rem;
+    }
+    
+    .block-5__description {
+        height: auto;
+        margin: 0;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .block-5__container {
+        padding: 0 0.75rem;
+    }
+    
+    .block-5__facts {
+        gap: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .block-5__stat {
+        min-height: 100px;
+    }
+    
+    .block-5__number {
+        font-size: 2.5rem;
+    }
+    
+    .block-5__description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+/* Animation Effects */
+.block-5__stat {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.block-5__stat:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.block-5__stat:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.block-5__stat:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effects */
+.block-5__stat:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.block-5__stat:hover .block-5__number {
+    color: RGB(71, 59, 240); /* Purple accent color */
+    transition: color 0.3s ease;
+}
+
+/* Counter Animation (for dynamic numbers) */
+.block-5__number.counter-animation {
+    animation: countUp 2s ease-out;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Variants */
+.block-5--centered .block-5__facts {
+    justify-content: center;
+}
+
+.block-5--centered .block-5__stat {
+    text-align: center;
+}
+
+.block-5--dark {
+    background: RGB(22, 28, 45);
+    padding: 2rem 0;
+    border-radius: 8px;
+}
+
+.block-5--dark .block-5__number,
+.block-5--dark .block-5__description {
+    color: RGB(255, 255, 255);
+}
+
+.block-5--dark .block-5__stat:hover .block-5__number {
+    color: RGB(71, 59, 240);
+}
+
+/* Grid Layout Variant */
+.block-5--grid .block-5__facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    height: auto;
+}
+
+.block-5--grid .block-5__stat {
+    width: 100%;
+    justify-self: center;
+}
+
+@media (max-width: 768px) {
+    .block-5--grid .block-5__facts {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Icon Support */
+.block-5__stat--with-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.block-5__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: RGB(71, 59, 240);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .block-5__number,
+    .block-5__description {
+        color: RGB(255, 255, 255);
+    }
+    
+    .block-5__stat:hover .block-5__number {
+        color: RGB(71, 59, 240);
+    }
+}
+
+/* Accessibility */
+.block-5__stat:focus-within {
+    outline: 2px solid RGB(71, 59, 240);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.block-5__number:focus,
+.block-5__description:focus {
+    outline: none;
+}
+
+/* Print Styles */
+@media print {
+    .block-5__stat {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .block-5__stat:hover {
+        transform: none;
+    }
+    
+    .block-5__stat:hover .block-5__number {
+        color: RGB(22, 28, 45);
+    }
+}
