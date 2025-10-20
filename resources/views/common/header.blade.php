@@ -4,7 +4,7 @@
 @php
     $variant = $variant ?? 'transparent';
     $sticky = $sticky ?? false;
-    $logo = $logo ?? 'shadepro';
+    $currentLanguage = $currentLanguage ?? 'vn';
     $menu = $menu ?? [
         [
             'text' => 'Collect',
@@ -17,10 +17,17 @@
             'icon' => 'arrow-right'
         ]
     ];
-    $language = $language ?? [
-        'flag' => 'vn',
-        'text' => 'Tiếng Việt',
-        'url' => '/language'
+    $languages = $languages ?? [
+        'vn' => [
+            'flag' => 'vn',
+            'text' => 'Tiếng Việt',
+            'code' => 'vn'
+        ],
+        'en' => [
+            'flag' => 'en',
+            'text' => 'Tiếng Anh',
+            'code' => 'en'
+        ]
     ];
 @endphp
 
@@ -29,7 +36,10 @@
         <div class="header__content">
             {{-- Logo Section --}}
             <div class="header__logo">
-                @include('common.logo', ['size' => 'default', 'variant' => 'default'])
+                <a href="/" class="header__logo-link">
+                    <img src="{{ asset('images/logo.svg') }}" alt="ShadePro Logo" class="header__logo-img">
+                    <span class="header__logo-text">shadepro</span>
+                </a>
             </div>
 
             {{-- Menu Section --}}
@@ -50,15 +60,51 @@
                 @endif
 
                 {{-- Language Selector --}}
-                @if(isset($language))
-                    <button class="header__language" type="button" aria-label="Select language">
-                        <div class="header__language-flag"></div>
-                        <span class="header__language-text">{{ $language['text'] }}</span>
+                <div class="header__language-selector">
+                    <button class="header__language" type="button" aria-label="Select language" id="language-selector">
+                        <div class="header__language-flag">
+                            @if($currentLanguage === 'vn')
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="10" fill="#DA251D"/>
+                                    <path d="M10 4L12.5 8H7.5L10 4Z" fill="#FFCD00"/>
+                                </svg>
+                            @else
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="10" fill="#012169"/>
+                                    <path d="M10 0L12.5 4H7.5L10 0Z" fill="#FFFFFF"/>
+                                </svg>
+                            @endif
+                        </div>
+                        <span class="header__language-text">{{ $languages[$currentLanguage]['text'] }}</span>
                         <svg class="header__language-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.248 5.247L13.752 11.751" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                @endif
+                    
+                    {{-- Language Dropdown --}}
+                    <div class="header__language-dropdown" id="language-dropdown">
+                        @foreach($languages as $code => $lang)
+                            <button class="header__language-option {{ $code === $currentLanguage ? 'header__language-option--active' : '' }}" 
+                                    data-language="{{ $code }}" 
+                                    type="button">
+                                <div class="header__language-option-flag">
+                                    @if($code === 'vn')
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="10" cy="10" r="10" fill="#DA251D"/>
+                                            <path d="M10 4L12.5 8H7.5L10 4Z" fill="#FFCD00"/>
+                                        </svg>
+                                    @else
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="10" cy="10" r="10" fill="#012169"/>
+                                            <path d="M10 0L12.5 4H7.5L10 0Z" fill="#FFFFFF"/>
+                                        </svg>
+                                    @endif
+                                </div>
+                                <span class="header__language-option-text">{{ $lang['text'] }}</span>
+                            </button>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -105,13 +151,67 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', requestTick);
     }
     
-    // Language selector dropdown
+    // Language selector functionality
+    const languageSelector = header.querySelector('.header__language-selector');
     const languageButton = header.querySelector('.header__language');
-    if (languageButton) {
+    const languageDropdown = header.querySelector('.header__language-dropdown');
+    const languageOptions = header.querySelectorAll('.header__language-option');
+    
+    if (languageSelector && languageButton && languageDropdown) {
+        // Toggle dropdown on click
         languageButton.addEventListener('click', function(e) {
             e.preventDefault();
-            // Add language dropdown functionality here
-            console.log('Language selector clicked');
+            e.stopPropagation();
+            languageDropdown.classList.toggle('header__language-dropdown--open');
+        });
+        
+        // Handle language selection
+        languageOptions.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.preventDefault();
+                const selectedLanguage = this.getAttribute('data-language');
+                
+                // Update the button text and flag
+                const currentLanguage = this.querySelector('.header__language-option-text').textContent;
+                const currentFlag = this.querySelector('.header__language-option-flag').innerHTML;
+                
+                const buttonText = languageButton.querySelector('.header__language-text');
+                const buttonFlag = languageButton.querySelector('.header__language-flag');
+                
+                buttonText.textContent = currentLanguage;
+                buttonFlag.innerHTML = currentFlag;
+                
+                // Update active state
+                languageOptions.forEach(opt => opt.classList.remove('header__language-option--active'));
+                this.classList.add('header__language-option--active');
+                
+                // Close dropdown
+                languageDropdown.classList.remove('header__language-dropdown--open');
+                
+                // Store language preference
+                localStorage.setItem('selectedLanguage', selectedLanguage);
+                
+                // Trigger language change event
+                window.dispatchEvent(new CustomEvent('languageChanged', {
+                    detail: { language: selectedLanguage }
+                }));
+                
+                console.log('Language changed to:', selectedLanguage);
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!languageSelector.contains(e.target)) {
+                languageDropdown.classList.remove('header__language-dropdown--open');
+            }
+        });
+        
+        // Close dropdown on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                languageDropdown.classList.remove('header__language-dropdown--open');
+            }
         });
     }
     

@@ -18,7 +18,6 @@
 <body>
     {{-- Header --}}
     @include('common.header', [
-        'logo' => 'shadepro',
         'menu' => [
             [
                 'text' => 'Collect',
@@ -31,10 +30,18 @@
                 'icon' => 'arrow-right'
             ]
         ],
-        'language' => [
-            'flag' => 'vn',
-            'text' => 'Tiếng Việt',
-            'url' => '/language'
+        'currentLanguage' => 'vn',
+        'languages' => [
+            'vn' => [
+                'flag' => 'vn',
+                'text' => 'Tiếng Việt',
+                'code' => 'vn'
+            ],
+            'en' => [
+                'flag' => 'en',
+                'text' => 'Tiếng Anh',
+                'code' => 'en'
+            ]
         ],
         'sticky' => true,
         'variant' => 'transparent'
