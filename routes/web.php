@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home.index');
+
+// Form routes
+Route::get('/form', [FormController::class, 'index'])->name('form.index');
+Route::post('/form', [FormController::class, 'store'])->name('form.store');
