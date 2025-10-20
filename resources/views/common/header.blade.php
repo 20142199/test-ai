@@ -38,7 +38,6 @@
             <div class="header__logo">
                 <a href="/" class="header__logo-link">
                     <img src="{{ asset('images/logo.svg') }}" alt="ShadePro Logo" class="header__logo-img">
-                    <span class="header__logo-text">shadepro</span>
                 </a>
             </div>
 

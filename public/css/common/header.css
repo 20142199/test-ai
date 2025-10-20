@@ -44,18 +44,11 @@
 }
 
 .header__logo-img {
-    width: 43px;
-    height: 49px;
+    width: 182px;
+    height: 50px;
     flex-shrink: 0;
 }
 
-.header__logo-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: RGB(22, 28, 45);
-    line-height: 1;
-}
 
 /* Menu Section */
 .header__menu {
