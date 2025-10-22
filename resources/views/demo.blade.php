@@ -6,6 +6,10 @@
     <title>Bekisoft JSC</title>
 </head>
 <body>
-    <h1>Welcome to Bekisoft JSC</h1>
+    @include('header')
+    
+    <main>
+        <h1>Welcome to Bekisoft JSC</h1>
+    </main>
 </body>
 </html>
