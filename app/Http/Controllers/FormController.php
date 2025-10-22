@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CursorService;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
+    protected CursorService $service;
+    public function __construct()
+    {
+        $this->service = new CursorService();
+    }
     /**
      * Display the form for creating a landing page
      */
@@ -13,7 +19,7 @@ class FormController extends Controller
     {
         return view('form');
     }
-    
+
     /**
      * Process the form submission and generate landing page
      */
@@ -22,32 +28,20 @@ class FormController extends Controller
         // Validate the form data
         $request->validate([
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'header' => 'nullable|string|max:1000',
-            'blockCount' => 'required|integer|min:1|max:20',
-            'footer' => 'nullable|string|max:1000',
+            'header' => 'nullable|string',
+            'blockCount' => 'nullable|integer|min:1|max:20',
+            'footer' => 'nullable|string',
             'blocks' => 'nullable|array',
-            'blocks.*' => 'nullable|string|max:2000'
+            'blocks.*' => 'nullable|string'
         ]);
-        
-        // Process the form data here
-        $data = [
-            'logo' => $request->file('logo'),
-            'header' => $request->input('header'),
-            'blockCount' => $request->input('blockCount'),
-            'blocks' => $request->input('blocks', []),
-            'footer' => $request->input('footer')
-        ];
-        
-        // Handle logo upload if provided
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logoName = time() . '_' . $logo->getClientOriginalName();
-            $logo->move(public_path('uploads'), $logoName);
-            $data['logo_path'] = 'uploads/' . $logoName;
+
+        // Process the form data using the service
+        $result = $this->service->generateLanding($request->all());
+
+        if ($result) {
+            return redirect()->back()->with('success', 'Landing page generated successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Error generating landing page.');
         }
-        
-        // Here you can process the data to generate a landing page
-        // For now, we'll just return a success message
-        return redirect()->back()->with('success', 'Form submitted successfully! Landing page will be generated.');
     }
 }

@@ -19,12 +19,14 @@ class HttpHelper
     public static function get($url, array $params = [], array $headers = []): array|string|Translator|null
     {
         $response = Http::withoutVerifying()
+            ->timeout(100)
             ->withHeaders($headers)
             ->get($url, $params);
         if ($response->successful()) {
+            dump(2);
             return json_decode($response->body(), true);
         }
-
+        dd($response->body());
         return null;
     }
 
@@ -39,12 +41,12 @@ class HttpHelper
     public static function post($url, array $params = [], array $headers = []): mixed
     {
         $response = Http::withoutVerifying()
+            ->timeout(100)
             ->withHeaders($headers)
             ->post($url, $params);
         if ($response->successful()) {
             return json_decode($response->body(), true);
         }
-
         return null;
     }
 
