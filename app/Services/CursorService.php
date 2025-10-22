@@ -21,9 +21,8 @@ class CursorService
             return false;
         }
         foreach ($params['blocks'] as $key => $block) {
-            $images = $params['images'][$key];
             sleep(70);
-            $data = $this->createBlock($agentId, $block, $key, $images);
+            $data = $this->createBlock($agentId, $block, $key);
             if (!$data) {
                 return false;
             }
@@ -78,19 +77,8 @@ class CursorService
         ]);
     }
 
-    public function createBlock($agentId, $block, $key, $images)
+    public function createBlock($agentId, $block, $key)
     {
-        foreach ($images as $image) {
-            $filename = $image->getClientOriginalName();
-            // Kiểm tra và tạo thư mục nếu chưa có
-            $destinationPath = public_path('images/block-' . $key);
-            if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0755, true);
-            }
-            // Lưu file vào thư mục public/images
-            $image->move(public_path('images/block-' . $key), $filename);
-        }
-
         return $this->post('agents/' . $agentId . '/followup', [
             'prompt' => [
                 'text' => "Create a file block-$key.blade.php in folder resources/views.
