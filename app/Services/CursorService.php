@@ -13,6 +13,7 @@ class CursorService
         if (!$data) {
             return false;
         }
+        $this->createLogo($params['logo']);
         $agentId = $data['id'];
         sleep(70);
         $data = $this->createHeader($agentId, $params['header']);
@@ -53,33 +54,17 @@ class CursorService
         ]);
     }
 
-    public function createLogo($agentId, $image)
+    public function createLogo($file)
     {
-        $imagePath = $image->getRealPath();
-        $fileContents = file_get_contents($imagePath);
-        $base64 = base64_encode($fileContents);
-        $size = getimagesize($imagePath);
-        dump($size);
-        dump($base64);
-        return $this->post('agents/' . $agentId . '/followup', [
-            'prompt' => [
-                'text' => 'Create a file logo.png in folder public/images with content of this image.',
-                'images' => [
-                    [
-                        'data' => $base64,
-                        'dimension' => [
-                            'width' => $size[0],
-                            'height' => $size[1],
-                        ],
-                    ]
-                ]
-            ],
-        ]);
-    }
-    public function getAgent($agentId)
-    {
-        return $this->get('agents/' . $agentId, []);
-
+        // Đặt tên file duy nhất
+        $filename = $file->getClientOriginalName();
+        // Kiểm tra và tạo thư mục nếu chưa có
+        $destinationPath = public_path('images');
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0755, true);
+        }
+        // Lưu file vào thư mục public/images
+        $file->move(public_path('images'), $filename);
     }
 
     public function createHeader($agentId, $header)
@@ -87,7 +72,7 @@ class CursorService
         return $this->post('agents/' . $agentId . '/followup', [
             'prompt' => [
                 'text' => "Create a file header.blade.php in folder resources/views, using logo file in public/images/logo.png.
-                Request 100% figma layout. Use padding and margin. Standard horizontal size is 1440px, can be responsive.
+                Request 100% figma layout, font size, font style and text. Use padding and margin. Standard horizontal size is 1440px, can be responsive.
                 then import it in file demo.blade.php. User this figma content: \n" . $header,
             ]
         ]);
@@ -95,26 +80,22 @@ class CursorService
 
     public function createBlock($agentId, $block, $key, $images)
     {
-        $data = [];
         foreach ($images as $image) {
-            $imagePath = $image->getRealPath();
-            $fileContents = file_get_contents($imagePath);
-            $base64 = base64_encode($fileContents);
-            $size = getimagesize($imagePath);
-            $data[] = [
-                'data' => $base64,
-                'dimension' => [
-                    'width' => $size[0],
-                    'height' => $size[1],
-                ],
-            ];
+            $filename = $image->getClientOriginalName();
+            // Kiểm tra và tạo thư mục nếu chưa có
+            $destinationPath = public_path('images/block-' . $key);
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            // Lưu file vào thư mục public/images
+            $image->move(public_path('images/block-' . $key), $filename);
         }
+
         return $this->post('agents/' . $agentId . '/followup', [
             'prompt' => [
                 'text' => "Create a file block-$key.blade.php in folder resources/views.
-                Request 100% figma layout. Use padding and margin. Standard horizontal size is 1440px, can be responsive.
-                Use these images in order from left to right, up to down. Then import it in file demo.blade.php. Use this figma content: \n" . $block,
-                'images' => $data
+                Request 100% figma layout, font size, font style and text. Use padding and margin. Standard horizontal size is 1440px, can be responsive.
+                Use the images in the public/images/block-$key folder in order from left to right, top to bottom. Then import it in file demo.blade.php. Use this figma content: \n" . $block,
             ]
         ]);
     }

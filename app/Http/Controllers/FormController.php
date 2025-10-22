@@ -21,7 +21,7 @@ class FormController extends Controller
     }
 
     /**
-     * Process the form submission and generate landing page
+     * Process the form submission and generate a landing page
      */
     public function store(Request $request)
     {
