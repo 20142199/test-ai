@@ -1,0 +1,192 @@
+/* Icon Component Styles */
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Icon Sizes */
+.icon-small {
+    width: 16px;
+    height: 16px;
+}
+
+.icon-medium {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-large {
+    width: 32px;
+    height: 32px;
+}
+
+.icon-xlarge {
+    width: 48px;
+    height: 48px;
+}
+
+/* Icon Colors */
+.icon-primary {
+    color: #3490dc;
+}
+
+.icon-secondary {
+    color: #6c757d;
+}
+
+.icon-success {
+    color: #38c172;
+}
+
+.icon-danger {
+    color: #e3342f;
+}
+
+.icon-warning {
+    color: #ffed4e;
+}
+
+.icon-info {
+    color: #6cb2eb;
+}
+
+.icon-light {
+    color: #f8f9fa;
+}
+
+.icon-dark {
+    color: #343a40;
+}
+
+.icon-white {
+    color: #ffffff;
+}
+
+.icon-muted {
+    color: #6c757d;
+    opacity: 0.7;
+}
+
+/* Icon States */
+.icon:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.icon-clickable {
+    cursor: pointer;
+}
+
+.icon-clickable:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.icon-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Icon Animations */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.icon-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.icon-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Icon with background */
+.icon-circle {
+    border-radius: 50%;
+    padding: 8px;
+    background-color: #f8f9fa;
+}
+
+.icon-square {
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #f8f9fa;
+}
+
+/* Icon Positioning */
+.icon-left {
+    margin-right: 8px;
+}
+
+.icon-right {
+    margin-left: 8px;
+}
+
+/* Responsive Icons */
+@media (max-width: 768px) {
+    .icon-small {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .icon-medium {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .icon-large {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Icon Button */
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon-button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.icon-button:focus {
+    outline: 2px solid #3490dc;
+    outline-offset: 2px;
+}
