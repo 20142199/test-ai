@@ -13,7 +13,6 @@ class CursorService
         if (!$data) {
             return false;
         }
-        $this->createLogo($params['logo']);
         $agentId = $data['id'];
         sleep(70);
         $data = $this->createHeader($agentId, $params['header']);
