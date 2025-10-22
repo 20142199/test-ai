@@ -11,5 +11,7 @@
     <main>
         <h1>Bekisoft JSC</h1>
     </main>
+
+    @include('footer')
 </body>
 </html>
