@@ -20,8 +20,6 @@
 <body>
     @include('header')
     
-    <main style="max-width: 1440px; margin: 0 auto; padding: 40px 130px;">
-        <h1>Bekisoft JSC</h1>
-    </main>
+    @include('block-1')
 </body>
 </html>
