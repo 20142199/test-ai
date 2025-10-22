@@ -9,14 +9,15 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #FFFFFF;
         }
     </style>
 </head>
 <body>
     @include('header')
     
-    <main style="padding: 40px 130px; max-width: 1440px; margin: 0 auto;">
-        <h1>Bekisoft JSC</h1>
+    <main>
+        @include('block-1')
     </main>
 </body>
 </html>
