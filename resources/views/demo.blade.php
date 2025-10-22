@@ -21,5 +21,7 @@
     @include('header')
     
     @include('block-1')
+    
+    @include('footer')
 </body>
 </html>
