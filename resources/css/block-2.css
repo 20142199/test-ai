@@ -1,0 +1,242 @@
+/* Block 2 Styles */
+.block-2-container {
+    width: 100%;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    min-height: 914px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block-2-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+.concentric-circles {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    position: absolute;
+    border: 1px solid #18867E;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.circle-1 { width: 375px; height: 315px; }
+.circle-2 { width: 454px; height: 381px; }
+.circle-3 { width: 546px; height: 458px; }
+.circle-4 { width: 626px; height: 527px; }
+.circle-5 { width: 723px; height: 608px; }
+.circle-6 { width: 833px; height: 701px; }
+.circle-7 { width: 972px; height: 817px; }
+.circle-8 { width: 1103px; height: 928px; }
+.circle-9 { width: 1269px; height: 1067px; }
+.circle-10 { width: 1425px; height: 1198px; }
+.circle-11 { width: 1584px; height: 1330px; }
+.circle-12 { width: 1747px; height: 1468px; }
+
+.block-2-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1920px;
+    width: 100%;
+    padding: 80px 240px;
+}
+
+.block-2-title-wrapper {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.block-2-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #14A39A;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.block-2-cards-grid {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.feature-card {
+    position: absolute;
+    background: rgba(20, 163, 154, 0.04);
+    border: 2px solid #14A39A;
+    border-radius: 29.28px;
+    backdrop-filter: blur(45.79px);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.feature-card-1 {
+    top: 0;
+    left: 147px;
+    width: 363px;
+    min-height: 210px;
+}
+
+.feature-card-2 {
+    top: 136px;
+    left: 0;
+    width: 363px;
+    min-height: 199px;
+}
+
+.feature-card-3 {
+    top: 0;
+    right: 0;
+    width: 363px;
+    min-height: 198px;
+}
+
+.feature-card-4 {
+    top: 184px;
+    right: 197px;
+    width: 379px;
+    min-height: 184px;
+}
+
+.feature-card-5 {
+    bottom: 0;
+    left: 510px;
+    width: 363px;
+    min-height: 202px;
+}
+
+.feature-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.feature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.feature-title {
+    font-size: 18.69px;
+    font-weight: 600;
+    color: #14A39A;
+    margin: 0;
+    line-height: 22px;
+}
+
+.feature-description {
+    font-size: 14px;
+    font-weight: 400;
+    color: #3F515C;
+    margin: 0;
+    line-height: 1.57;
+}
+
+.vietgates-logo {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+}
+
+.vietgates-logo-1 {
+    top: 120px;
+    right: 1070px;
+}
+
+.vietgates-logo-2 {
+    bottom: 226px;
+    left: 410px;
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 1440px) {
+    .block-2-content {
+        padding: 60px 120px;
+    }
+
+    .block-2-cards-grid {
+        height: 500px;
+    }
+
+    .feature-card {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 1024px) {
+    .block-2-content {
+        padding: 40px 60px;
+    }
+
+    .block-2-title {
+        font-size: 36px;
+    }
+
+    .block-2-cards-grid {
+        position: static;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .feature-card {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        min-height: auto !important;
+    }
+
+    .vietgates-logo {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .block-2-content {
+        padding: 32px 16px;
+    }
+
+    .block-2-title {
+        font-size: 28px;
+    }
+
+    .block-2-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .circle {
+        display: none;
+    }
+}

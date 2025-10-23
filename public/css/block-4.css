@@ -1,0 +1,281 @@
+/* Block 4 Styles */
+.block-4-container {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 64px 0;
+}
+
+.block-4-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 160px;
+}
+
+.block-4-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #14A39A;
+    text-align: center;
+    margin: 0 0 32px 0;
+    line-height: 45px;
+}
+
+.block-4-content {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.block-4-left {
+    flex: 0 0 429px;
+    position: relative;
+    height: 518px;
+}
+
+.block-4-gradient {
+    position: absolute;
+    top: -108.5px;
+    left: -101px;
+    width: 559px;
+    height: 559px;
+    background: radial-gradient(circle, rgba(0, 169, 158, 1) 0%, rgba(0, 255, 237, 0) 100%);
+    opacity: 0.3;
+    border-radius: 50%;
+}
+
+.crypto-card {
+    position: absolute;
+    background: #14A39A;
+    border: 1px solid #19A491;
+    border-radius: 15px;
+    backdrop-filter: blur(147.9px);
+    box-shadow: inset 0 0 5.6px rgba(51, 255, 232, 1);
+    padding: 8px 16px;
+    color: white;
+}
+
+.crypto-card-1 {
+    top: 32.5px;
+    left: 123px;
+    width: 181px;
+}
+
+.crypto-card-2 {
+    top: 213.5px;
+    left: 235px;
+    width: 139px;
+}
+
+.crypto-card-3 {
+    top: 237.5px;
+    left: -43px;
+    width: 151px;
+}
+
+.crypto-card-value {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    line-height: 19px;
+}
+
+.crypto-card-label {
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 14px;
+    opacity: 0.9;
+}
+
+.crypto-card-detail {
+    margin-top: 8px;
+}
+
+.crypto-card-detail-label {
+    font-size: 12px;
+    margin: 0 0 8px 0;
+    line-height: 14px;
+}
+
+.crypto-card-detail-value {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    line-height: 19px;
+}
+
+.crypto-card-change {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.crypto-card-chart {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.chart-date-badge {
+    display: inline-block;
+    background: white;
+    color: #14A39A;
+    padding: 1px 5.5px;
+    border-radius: 10px;
+    font-size: 6px;
+    font-weight: 500;
+    line-height: 7px;
+    margin-bottom: 4px;
+}
+
+.block-4-left .crypto-icon {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+}
+
+.crypto-icon-1 {
+    top: 107.5px;
+    left: 123px;
+}
+
+.crypto-icon-2 {
+    top: 157.5px;
+    left: 240px;
+}
+
+.crypto-icon-3 {
+    top: 185.5px;
+    left: 13px;
+}
+
+.block-4-left .crypto-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.chart-line {
+    position: absolute;
+    top: 83.5px;
+    left: -64px;
+    width: 510px;
+    height: 122px;
+}
+
+.chart-line svg {
+    width: 100%;
+    height: 100%;
+}
+
+.block-4-right {
+    flex: 1;
+    max-width: 645px;
+}
+
+.feature-item {
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(25,164,145,0.3) 50%, rgba(255,255,255,0) 100%) 1;
+    padding: 16px 24px;
+}
+
+.feature-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.feature-item-title {
+    font-size: 18.69px;
+    font-weight: 600;
+    color: #14A39A;
+    margin: 0;
+    line-height: 22px;
+}
+
+.feature-item-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-item-icon svg {
+    width: 13.61px;
+    height: 22.27px;
+    fill: #19A491;
+}
+
+.feature-item-content {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #3F515C;
+    line-height: 1.57;
+    display: none;
+}
+
+.feature-item.expanded .feature-item-content {
+    display: block;
+}
+
+.feature-item.expanded {
+    padding: 16px 24px 24px 24px;
+}
+
+@media (max-width: 1440px) {
+    .block-4-inner {
+        padding: 0 80px;
+    }
+
+    .block-4-left {
+        flex: 0 0 380px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .block-4-inner {
+        padding: 0 40px;
+    }
+
+    .block-4-content {
+        flex-direction: column;
+    }
+
+    .block-4-left {
+        flex: none;
+        width: 100%;
+        max-width: 429px;
+    }
+
+    .block-4-right {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .block-4-inner {
+        padding: 0 16px;
+    }
+
+    .block-4-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .block-4-left {
+        display: none;
+    }
+
+    .feature-item {
+        padding: 12px 16px;
+    }
+
+    .feature-item-title {
+        font-size: 16px;
+    }
+}

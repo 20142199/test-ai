@@ -1,0 +1,87 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Color Variables */
+:root {
+    --primary-teal: #14A39A;
+    --primary-teal-dark: #19A491;
+    --secondary-gray: #3F515C;
+    --text-gray: #788588;
+    --border-gray: #D8DCDE;
+    --positive-green: #2EBD85;
+    --negative-red: #E33B54;
+    --white: #FFFFFF;
+}
+
+/* Common Button Styles */
+.btn {
+    padding: 16px 24px;
+    border-radius: 4px;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-teal);
+    border: none;
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--primary-teal-dark);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary-teal);
+    color: var(--primary-teal);
+}
+
+.btn-outline:hover {
+    background: rgba(20, 163, 154, 0.05);
+}
+
+.btn-large {
+    font-size: 26.67px;
+    line-height: 30px;
+}
+
+.btn-medium {
+    font-size: 17px;
+    line-height: 20px;
+}
+
+/* Common Container Styles */
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* Common Card Styles */
+.card {
+    background: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Common Gradient Text */
+.gradient-text {
+    background: linear-gradient(90deg, #14A39A 0%, #49FFED 50%, #0CB89E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
