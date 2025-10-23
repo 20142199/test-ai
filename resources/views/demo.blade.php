@@ -13,5 +13,7 @@
     @include('block-2')
     
     @include('block-4')
+    
+    @include('block-5')
 </body>
 </html>
