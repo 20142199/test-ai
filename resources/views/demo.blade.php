@@ -7,5 +7,6 @@
 </head>
 <body>
     @include('header')
+    @include('block-1')
 </body>
 </html>
