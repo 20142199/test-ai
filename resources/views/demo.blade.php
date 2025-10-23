@@ -8,6 +8,8 @@
 <body>
     @include('header')
     
+    @include('block-1')
+    
     <main>
         <h1>Bekisoft JSC</h1>
     </main>
