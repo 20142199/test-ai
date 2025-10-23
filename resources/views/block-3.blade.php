@@ -1,0 +1,394 @@
+<section class="block-3">
+    <div class="block-3-container">
+        <div class="block-3-header">
+            <h2 class="block-3-title">What Our Clients Say</h2>
+            <p class="block-3-description">Trusted by leading companies worldwide, we take pride in delivering exceptional results</p>
+        </div>
+        
+        <div class="block-3-testimonials">
+            <div class="testimonial-card">
+                <div class="testimonial-image">
+                    <img src="{{ asset('images/block-3/1.png') }}" alt="Client 1" class="client-photo">
+                </div>
+                <div class="testimonial-content">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Working with Bekisoft has been a game-changer for our business. Their attention to detail and commitment to excellence is unmatched.</p>
+                    <div class="testimonial-author">
+                        <h4 class="author-name">Sarah Johnson</h4>
+                        <p class="author-position">CEO, TechVision Inc.</p>
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-image">
+                    <img src="{{ asset('images/block-3/2.png') }}" alt="Client 2" class="client-photo">
+                </div>
+                <div class="testimonial-content">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">The team's expertise and professionalism exceeded our expectations. They delivered innovative solutions that transformed our operations.</p>
+                    <div class="testimonial-author">
+                        <h4 class="author-name">Michael Chen</h4>
+                        <p class="author-position">Director of Operations, GlobalTech</p>
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-image">
+                    <img src="{{ asset('images/block-3/3.png') }}" alt="Client 3" class="client-photo">
+                </div>
+                <div class="testimonial-content">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Outstanding service from start to finish. The results speak for themselves - our productivity has increased by 40% since implementation.</p>
+                    <div class="testimonial-author">
+                        <h4 class="author-name">Emily Rodriguez</h4>
+                        <p class="author-position">VP of Technology, Innovate Solutions</p>
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="block-3-stats">
+            <div class="stat-item">
+                <h3 class="stat-number">500+</h3>
+                <p class="stat-label">Happy Clients</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-number">1000+</h3>
+                <p class="stat-label">Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-number">15+</h3>
+                <p class="stat-label">Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-number">99%</h3>
+                <p class="stat-label">Client Satisfaction</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .block-3 {
+        width: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 100px 0;
+        position: relative;
+    }
+
+    .block-3::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.05);
+        pointer-events: none;
+    }
+
+    .block-3-container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 40px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .block-3-header {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .block-3-title {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 48px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 20px;
+        letter-spacing: -1px;
+        line-height: 1.2;
+    }
+
+    .block-3-description {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.95);
+        line-height: 1.6;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .block-3-testimonials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-bottom: 80px;
+    }
+
+    .testimonial-card {
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .testimonial-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 28px;
+        border: 4px solid #f0f0f0;
+        background-color: #e0e0e0;
+    }
+
+    .client-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .testimonial-content {
+        text-align: center;
+        width: 100%;
+    }
+
+    .quote-icon {
+        font-family: Georgia, serif;
+        font-size: 72px;
+        font-weight: 700;
+        color: #667eea;
+        line-height: 0.8;
+        margin-bottom: 20px;
+        opacity: 0.3;
+    }
+
+    .testimonial-text {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #555555;
+        line-height: 1.7;
+        margin-bottom: 28px;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        margin-bottom: 16px;
+    }
+
+    .author-name {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+
+    .author-position {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #888888;
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    .rating {
+        display: flex;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .star {
+        color: #ffc107;
+        font-size: 20px;
+    }
+
+    .block-3-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding-top: 60px;
+        border-top: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 56px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 12px;
+        line-height: 1;
+        letter-spacing: -1.5px;
+    }
+
+    .stat-label {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 1200px) {
+        .block-3-container {
+            padding: 0 32px;
+        }
+
+        .block-3-testimonials {
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            padding: 32px;
+        }
+
+        .block-3-title {
+            font-size: 40px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+        }
+    }
+
+    @media screen and (max-width: 968px) {
+        .block-3 {
+            padding: 80px 0;
+        }
+
+        .block-3-testimonials {
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .block-3-stats {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .block-3 {
+            padding: 60px 0;
+        }
+
+        .block-3-container {
+            padding: 0 24px;
+        }
+
+        .block-3-header {
+            margin-bottom: 48px;
+        }
+
+        .block-3-title {
+            font-size: 32px;
+        }
+
+        .block-3-description {
+            font-size: 16px;
+        }
+
+        .testimonial-card {
+            padding: 28px;
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+        }
+
+        .author-name {
+            font-size: 18px;
+        }
+
+        .stat-number {
+            font-size: 40px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .block-3 {
+            padding: 40px 0;
+        }
+
+        .block-3-container {
+            padding: 0 16px;
+        }
+
+        .block-3-title {
+            font-size: 28px;
+        }
+
+        .block-3-description {
+            font-size: 14px;
+        }
+
+        .block-3-stats {
+            grid-template-columns: 1fr;
+            gap: 24px;
+            padding-top: 40px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+        }
+    }
+</style>

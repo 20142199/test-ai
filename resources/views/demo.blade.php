@@ -12,6 +12,8 @@
     
     @include('block-2')
     
+    @include('block-3')
+    
     <main>
         <h1>Bekisoft JSC</h1>
     </main>
