@@ -1,0 +1,35 @@
+/* Loading animation for image placeholders */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.image-placeholder {
+    width: 400px;
+    height: 500px;
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
+}
+
+.image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    opacity: 0.7;
+}

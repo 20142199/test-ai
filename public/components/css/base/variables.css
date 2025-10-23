@@ -1,0 +1,24 @@
+:root {
+    /* Colors inspired by beige/neutral palette */
+    --primary-color: #F5F1EB;
+    --secondary-color: #E8DDD4;
+    --accent-color: #D4B896;
+    --text-dark: #2C2C2C;
+    --text-medium: #666666;
+    --text-light: #999999;
+    --white: #FFFFFF;
+    --black: #000000;
+    
+    /* Typography */
+    --font-primary: 'EB Garamond', serif;
+    --font-secondary: 'Zen Kaku Gothic New', sans-serif;
+    --font-accent: 'Zen Old Mincho', serif;
+    
+    /* Spacing */
+    --container-max-width: 1280px;
+    --section-padding: 80px 0;
+    --container-padding: 0 20px;
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+}
