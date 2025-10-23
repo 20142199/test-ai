@@ -10,6 +10,8 @@
     
     @include('block-1')
     
+    @include('block-2')
+    
     <main>
         <h1>Bekisoft JSC</h1>
     </main>
