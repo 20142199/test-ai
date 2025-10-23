@@ -6,6 +6,6 @@
     <title>Bekisoft JSC</title>
 </head>
 <body>
-    <h1>Bekisoft JSC</h1>
+    @include('header')
 </body>
 </html>
