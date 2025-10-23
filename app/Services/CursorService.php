@@ -14,24 +14,24 @@ class CursorService
             return false;
         }
         $agentId = $data['id'];
-        sleep(70);
+        sleep(120);
         $data = $this->createHeader($agentId, $params['header']);
         if (!$data) {
             return false;
         }
         foreach ($params['blocks'] as $key => $block) {
-            sleep(70);
+            sleep(120);
             $data = $this->createBlock($agentId, $block, $key);
             if (!$data) {
                 return false;
             }
         }
-        sleep(70);
+        sleep(120);
         $data = $this->createFooter($agentId, $params['footer']);
         if (!$data) {
             return false;
         }
-        sleep(70);
+        sleep(120);
         $data = $this->optimizeCode($agentId);
         if (!$data) {
             return false;
