@@ -8,5 +8,6 @@
 <body>
     @include('header')
     @include('block-1')
+    @include('block-2')
 </body>
 </html>
