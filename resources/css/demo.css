@@ -1,0 +1,165 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Common Components */
+
+/* Buttons */
+.btn {
+    padding: 16px 24px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #14A39A;
+    border: none;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: #0C8B83;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #14A39A;
+    color: #14A39A;
+}
+
+.btn-outline:hover {
+    background: rgba(20, 163, 154, 0.1);
+}
+
+.btn-sm {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.btn-lg {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(180deg, #14A39A 0%, #0C6B67 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-horizontal {
+    background: linear-gradient(90deg, #14A39A 0%, #49FFED 50%, #0CB79E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Section Wrappers */
+.section-wrapper {
+    width: 100%;
+    background: #FFFFFF;
+}
+
+.section-container {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* Glassmorphic Card */
+.glass-card {
+    background: rgba(20, 163, 154, 0.04);
+    border: 2px solid #14A39A;
+    border-radius: 29px;
+    padding: 24px;
+    backdrop-filter: blur(45.79px);
+    -webkit-backdrop-filter: blur(45.79px);
+}
+
+/* Concentric Circles Background */
+.concentric-circles-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #18867E;
+    border-radius: 50%;
+}
+
+/* Color Palette */
+:root {
+    --primary-teal: #14A39A;
+    --primary-teal-dark: #0C6B67;
+    --secondary-teal: #19A491;
+    --text-dark: #3F515C;
+    --text-gray: #788590;
+    --border-gray: #D8DCE0;
+    --positive-green: #2EBD85;
+    --negative-red: #E33B54;
+    --light-teal: #49FFED;
+    --gradient-teal: linear-gradient(180deg, #14A39A 0%, #0C6B67 100%);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-16 {
+    gap: 16px;
+}
+
+.gap-24 {
+    gap: 24px;
+}
+
+.gap-32 {
+    gap: 32px;
+}
+
+.gap-48 {
+    gap: 48px;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}

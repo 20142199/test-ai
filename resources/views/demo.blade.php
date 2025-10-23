@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bekisoft JSC</title>
+    <link rel="stylesheet" href="{{ asset('css/demo.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blocks.css') }}">
 </head>
 <body>
     @include('header')
@@ -12,5 +15,7 @@
     @include('block-3')
     @include('block-4')
     @include('block-5')
+
+    <script src="{{ asset('js/demo.js') }}"></script>
 </body>
 </html>
