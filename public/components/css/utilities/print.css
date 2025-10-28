@@ -1,0 +1,24 @@
+/* Print styles */
+@media print {
+    .header,
+    .nav-toggle,
+    .cta-button,
+    .secondary-button,
+    .contact-form,
+    .footer {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .hero,
+    .featured,
+    .about,
+    .menu-preview {
+        page-break-inside: avoid;
+        margin-bottom: 2rem;
+    }
+}
